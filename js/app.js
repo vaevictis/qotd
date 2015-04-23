@@ -1,16 +1,34 @@
 import React from 'react';
 import Firebase from 'firebase';
 import ReactFireMixin from 'reactfire';
+require('../css/style.css');
 
 let QuoteList = React.createClass({
+  spinner() {
+    return (
+      <div className="list-group-item">
+        <div className="spinner" />
+      </div>
+    );
+  },
+
   quotes() {
     return this.props.quotes.map((quote, index) => {
-      return ( <li key={index}>{quote.quote} - {quote.attribution}</li> );
+      return (
+        <div key={index} className="list-group-item">
+          <h4 className="list-group-item-heading">{quote.quote}</h4>
+          <p className="list-group-item-text">- {quote.attribution}</p>
+        </div>
+      );
     });
   },
 
   render() {
-    return <ul>{this.quotes()}</ul>;
+    return (
+      <div className="list-group">
+        {this.props.quotes.length > 0 ? this.quotes() : this.spinner() }
+      </div>
+    );
   }
 });
 
@@ -21,7 +39,7 @@ let App = React.createClass({
     return { quotes: [] };
   },
 
-  handleSubmit: function(e) {
+  handleSubmit(e) {
     e.preventDefault();
     this.firebaseRefs.quotes.push({
       quote: this.state.quote,
@@ -54,12 +72,33 @@ let App = React.createClass({
   render() {
     return (
       <div>
+        <h1>Shit My Mates Say</h1>
         <QuoteList quotes={ this.state.quotes } />
+
         <form onSubmit={ this.handleSubmit }>
-          <input name="quote" placeholder="Quote" onChange={ this.onQuoteChange } value={ this.state.quote } />
-          <input name="attribution" placeholder="Attribution" onChange={ this.onAttributionChange } value={ this.state.attribution } />
-          <button>{ "Add #" + (this.state.quotes.length + 1) }</button>
+          <div className="form-group joined-inputs">
+            <label className="sr-only" htmlFor="quote">New Quote</label>
+            <textarea
+              name="quote"
+              placeholder="Some awesome quote..."
+              onChange={ this.onQuoteChange }
+              value={ this.state.quote }
+              className="form-control"
+              rows="3"
+            /><input
+              name="attribution"
+              placeholder="Who?"
+              onChange={ this.onAttributionChange }
+              value={ this.state.attribution }
+              className="form-control"
+            />
+          </div>
+
+          <div className="form-group">
+            <button className="btn btn-default btn-block">{ "Quote it!" }</button>
+          </div>
         </form>
+
       </div>
     );
   }
