@@ -43,7 +43,8 @@ let App = React.createClass({
     e.preventDefault();
     this.firebaseRefs.quotes.push({
       quote: this.state.quote,
-      attribution: this.state.attribution
+      attribution: this.state.attribution,
+      quoted_at: new Date().getTime()
     });
     this.setState({attribution: "", quote: ""});
   },
