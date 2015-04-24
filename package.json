@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --hot --progress --colors",
-    "build": "webpack --progress --colors --config webpack.dist.config.js"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -16,6 +12,7 @@
     "firebase": "^2.2.4",
     "gulp": "^3.8.11",
     "gulp-gh-pages": "^0.5.1",
+    "gulp-shell": "^0.4.1",
     "react": "^0.13.2",
     "react-hot-loader": "^1.2.5",
     "reactfire": "^0.4.0",
