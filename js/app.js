@@ -74,7 +74,6 @@ let App = React.createClass({
     return (
       <div>
         <h1>Shit My Mates Say</h1>
-        <QuoteList quotes={ this.state.quotes } />
 
         <form onSubmit={ this.handleSubmit }>
           <div className="form-group joined-inputs">
@@ -96,10 +95,11 @@ let App = React.createClass({
           </div>
 
           <div className="form-group">
-            <button className="btn btn-default btn-block">{ "Quote it!" }</button>
+            <button className="btn btn-lg btn-default btn-block">{ "Quote it!" }</button>
           </div>
         </form>
 
+        <QuoteList quotes={ this.state.quotes } />
       </div>
     );
   }
