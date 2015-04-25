@@ -9,7 +9,7 @@ module.exports = React.createClass({
     var date = new Date(quote.quoted_at).toLocaleDateString();
     var byline = [quote.attribution, date].filter(Boolean).join(", ");
     return (
-      <small className="byline list-group-item-text">- {byline}</small>
+      <small className="quote-byline list-group-item-text">- {byline}</small>
     );
   },
 
@@ -19,8 +19,8 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div key={this.props.key} className="list-group-item" onClick={this.toggleByline}>
-        <h4 className="list-group-item-heading">{this.props.quote.quote}</h4>
+      <div key={this.props.key} className="quote-item list-group-item" onClick={this.toggleByline}>
+        <h4 className="quote-text list-group-item-heading">{this.props.quote.quote}</h4>
         { this.state.bylineVisible && this.byline(this.props.quote)}
       </div>
     );
