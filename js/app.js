@@ -13,11 +13,13 @@ let App = React.createClass({
   },
 
   submitQuote(quote, attribution) {
-    this.firebaseRefs.quotes.push({
-      quote: quote,
-      attribution: attribution,
-      quoted_at: new Date().getTime()
-    });
+    if (quote.trim()) {
+      this.firebaseRefs.quotes.push({
+        quote: quote.trim(),
+        attribution: attribution.trim(),
+        quoted_at: new Date().getTime()
+      });
+    }
   },
 
   componentWillMount() {
