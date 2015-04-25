@@ -12,7 +12,8 @@ gulp.task('start', shell.task([
 gulp.task('build', shell.task([
   "rm -rf ./build",
   "webpack --progress --colors --config webpack.dist.config.js",
-  "cp index.html build/index.html"
+  "cp index.html build/index.html",
+  "echo www.shitmymatessay.com > build/CNAME"
 ]));
 
 gulp.task('deploy', ['build'], function() {
