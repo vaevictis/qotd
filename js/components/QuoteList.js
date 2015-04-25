@@ -10,7 +10,7 @@ module.exports = React.createClass({
   },
 
   quotes() {
-    return this.props.quotes.map((quote, index) => {
+    return this.props.quotes.reverse().map((quote, index) => {
       return (
         <div key={index} className="list-group-item">
           <h4 className="list-group-item-heading">{quote.quote}</h4>
