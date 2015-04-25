@@ -1,8 +1,8 @@
-import React from 'react';
-import Firebase from 'firebase';
-import ReactFireMixin from 'reactfire';
-import QuoteList from './components/QuoteList.js';
-import QuoteForm from './components/QuoteForm.js';
+var React = require('react');
+var Firebase = require('firebase');
+var ReactFireMixin = require('reactfire');
+var QuoteList = require('./components/QuoteList.js');
+var QuoteForm = require('./components/QuoteForm.js');
 require('../css/style.css');
 
 let App = React.createClass({

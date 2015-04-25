@@ -1,5 +1,5 @@
-import React from 'react';
-import QuoteListItem from './QuoteListItem.js';
+var React = require('react');
+var QuoteListItem = require('./QuoteListItem.js');
 
 module.exports = React.createClass({
   spinner() {
