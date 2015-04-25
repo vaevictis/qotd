@@ -1,4 +1,6 @@
-var React = require('react');
+var React = require('react/addons');
+var Animations = React.addons.CSSTransitionGroup;
+require('../../css/animations.css');
 
 module.exports = React.createClass({
   getInitialState() {
@@ -9,7 +11,7 @@ module.exports = React.createClass({
     var date = new Date(quote.quoted_at).toLocaleDateString();
     var byline = [quote.attribution, date].filter(Boolean).join(", ");
     return (
-      <small className="quote-byline list-group-item-text">- {byline}</small>
+      <small key={date} className="quote-byline list-group-item-text">- {byline}</small>
     );
   },
 
@@ -21,7 +23,9 @@ module.exports = React.createClass({
     return (
       <div key={this.props.key} className="quote-item list-group-item" onClick={this.toggleByline}>
         <h4 className="quote-text list-group-item-heading">{this.props.quote.quote}</h4>
-        { this.state.bylineVisible && this.byline(this.props.quote)}
+        <Animations transitionName="fade">
+          { this.state.bylineVisible && this.byline(this.props.quote)}
+        </Animations>
       </div>
     );
   }
