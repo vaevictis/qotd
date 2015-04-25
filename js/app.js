@@ -32,7 +32,7 @@ let App = React.createClass({
       <div>
         <h1>Shit My Mates Say</h1>
         <QuoteForm onSubmit={this.submitQuote} />
-        <QuoteList quotes={ this.state.quotes } />
+        <QuoteList quotes={this.state.quotes} />
       </div>
     );
   }

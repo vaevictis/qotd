@@ -10,10 +10,12 @@ gulp.task('start', shell.task([
 ]));
 
 gulp.task('build', shell.task([
-  "webpack --progress --colors --config webpack.dist.config.js"
+  "rm -rf ./build",
+  "webpack --progress --colors --config webpack.dist.config.js",
+  "cp index.html build/index.html"
 ]));
 
 gulp.task('deploy', ['build'], function() {
-  return gulp.src(['index.html', './build/**/*'])
+  return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
