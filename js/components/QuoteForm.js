@@ -24,7 +24,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
+      <form className="quotes-form" onSubmit={ this.handleSubmit }>
         <div className="form-group joined-inputs">
           <label className="sr-only" htmlFor="quote">New Quote</label>
           <textarea

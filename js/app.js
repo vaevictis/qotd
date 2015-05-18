@@ -32,8 +32,11 @@ let App = React.createClass({
   render() {
     return (
       <div>
-        <h1>Shit My Mates Say</h1>
-        <QuoteForm onSubmit={this.submitQuote} />
+        <header className="header">
+          <h1 className="title">Shit My Mates Say</h1>
+          <QuoteForm onSubmit={this.submitQuote} />
+        </header>
+
         <QuoteList quotes={this.state.quotes} />
       </div>
     );
