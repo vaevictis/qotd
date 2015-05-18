@@ -3,7 +3,7 @@ var Firebase = require('firebase');
 var ReactFireMixin = require('reactfire');
 var QuoteList = require('./components/QuoteList.js');
 var QuoteForm = require('./components/QuoteForm.js');
-require('../css/style.css');
+require("../sass/application.sass");
 
 let App = React.createClass({
   mixins: [ReactFireMixin],

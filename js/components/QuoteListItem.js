@@ -1,6 +1,5 @@
 var React = require('react/addons');
 var Animations = React.addons.CSSTransitionGroup;
-require('../../css/animations.css');
 
 module.exports = React.createClass({
   getInitialState() {
